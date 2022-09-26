@@ -1,0 +1,21 @@
+
+
+<div class ="container">
+    <% if current_user %>
+      <h1>Welcome Back <%= current_user.role%></h1>
+      <nav class="navbar navbar-light bg-light">
+       <form class="container-fluid justify-content-start">
+       <button class="btn btn-outline-success me-2" type="button"><%= link_to "Log out!", destroy_user_session_path, 'data-turbo-method': :delete%></button>
+      </form>
+      </nav>
+      
+    <% else %>
+      <h1>Welcome to Bug Tracker</h1>
+   <nav class="navbar navbar-light bg-light">
+    <form class="container-fluid justify-content-start">
+      <button class="btn btn-outline-success me-2" type="button"><%= link_to "Sign up!", new_user_registration_path %></button>
+      <button class="btn btn-sm btn-outline-secondary" type="button"><%= link_to "Log in!!", new_user_session_path %></button>
+    </form>
+   </nav>
+    <% end %>
+</div>
